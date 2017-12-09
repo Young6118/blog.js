@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script type="text/javascript" src="/static/js/admin.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+    <title>表格</title>
+    <link href="/static/css/admin.css" rel="stylesheet">
+</head>
+<body>
+<h1>表格</h1>
+<div class="nav-style" id="nav-viwe">
+    <ul class=" nav nav-tabs">
+        <li role="presentation" class="active choose-li""><a href="#" >Web开发</a></li>
+        <li role="presentation" id="nav2" class="choose-li"><a href="#">运维</a></li>
+        <li role="presentation" class="choose-li"><a href="#" >安全</a></li>
+        <li role="presentation" class="choose-li"><a href="#" >产品运营</a></li>
+    </ul>
+</div>
+</div>
+<div class="table-style">
+    <div class="table-style">
+        <div class="table-viwe" style="">
+            <table class=" table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>专业</th>
+                    <th>联系方式</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for u in web %}
+                <tr>
+                    <th scope="row">{{ u.name }}</th>
+                    <td>{{ u.grade }}{{ u.major }}</td>
+                    <td>{{ u.phone }}</td>
+                    <td>
+                        <span class="status-{{ u.num }}">{{ u.status }}</span>
+                        <select  data-id={{u.num}} data-mail={{ u.mail }}>
+                            <option class="select-title">更改状态</option>
+                            <option>一面通过</option>
+                            <option>二面通过</option>
+                            <option>三面通过</option>
+                            <option>进入工作室</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-viwe" style="display: none;">
+            <table class=" table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>专业</th>
+                    <th>联系方式</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for u in operation %}
+                <tr>
+                    <th scope="row">{{ u.name }}</th>
+                    <td>{{ u.grade }}{{ u.major }}</td>
+                    <td>{{ u.phone }}</td>
+                    <td>
+                        <span class="status-{{ u.num }}">{{ u.status }}</span>
+                        <select  data-id={{u.num}} data-mail={{ u.mail }}>
+                            <option class="select-title">更改状态</option>
+                            <option>一面通过</option>
+                            <option>二面通过</option>
+                            <option>三面通过</option>
+                            <option>进入工作室</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-viwe" style="display: none;">
+            <table class=" table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>专业</th>
+                    <th>联系方式</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for u in security %}
+                <tr>
+                    <th scope="row">{{ u.name }}</th>
+                    <td>{{ u.grade }}{{ u.major }}</td>
+                    <td>{{ u.phone }}</td>
+                    <td>
+                        <span class="status-{{ u.num }}">{{ u.status }}</span>
+                        <select  data-id={{u.num}} data-mail={{ u.mail }}>
+                            <option class="select-title">更改状态</option>
+                            <option>一面通过</option>
+                            <option>二面通过</option>
+                            <option>三面通过</option>
+                            <option>进入工作室</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-viwe" style="display: none;">
+            <table class=" table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>专业</th>
+                    <th>联系方式</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for u in yunying %}
+                <tr>
+                    <th scope="row">{{ u.name }}</th>
+                    <td>{{ u.grade }}{{ u.major }}</td>
+                    <td>{{ u.phone }}</td>
+                    <td>
+                        <span class="status-{{ u.num }}">{{ u.status }}</span>
+                        <select data-id={{u.num}} data-mail={{ u.mail }}>
+                            <option class="select-title">更改状态</option>
+                            <option>一面通过</option>
+                            <option>二面通过</option>
+                            <option>三面通过</option>
+                            <option>进入工作室</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>周洋 | {{ article.title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/lib/jquery-3.0.0.min.js"></script>
+    <script src="/static/lib/markdownit.js"></script>
+    <link rel="stylesheet" href="/static/css/detail.css">
+</head>
+<div id="main" style="display: inline-block;">
+    <div id="content">
+        <div class='panel'>
+            <div>
+                <div style="margin-top: 10px;display: inline-block;"><a href="/article" style="font-size: 25px;background-color: #7aba7b;color: white;padding: 5px;font-weight:200;"> < 返回 </a></div>
+
+                <span class="topic_full_title">
+                        {{ article.title }}
+                </span>
+                <div class="changes">
+                 <span>
+                     <a href="/user/{{ article.user_id }}">{{ article.author.username }}</a>
+                     <a href="/user/{{ article.user_id  }}" class="user_avatar">
+                        <img src="/user/avatar/{{ article.author.avatar }}"
+                             title="{{ article.author.username }}"/>
+                     </a>
+                        {# article.catalogue 拿到的是 catalogue 实例 #}
+                        {{ article.catalogue.title }}
+                 </span>
+                 <span>
+                     <!-- | 是 nunjcks 里的过滤器操作符-->
+                    <!--下面的语法相当于调用了 formattedTime 函数-->
+                    <!--formattedTime(topic.ct)-->
+                    发布于 {{ article.ct | formattedTime }}
+                </span>
+                <span>
+                    {{ article.views }} 次浏览
+                </span>
+                </div>
+            </div>
+            <br/>
+            <div class='header topic_header'>
+                <div class='author_content'>
+                    <div class='topic_content'>
+                        <div class="markdown-text">
+                            {{ article.content | safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<replies>
+    <div class='panel'>
+        <span class='col_fade'>
+            <!-- 过滤器 -->
+            <!--findBetween('开始花括号 和 结束花括号')-->
+            <!--var l = find('divider')-->
+            <!--func = l[1]-->
+            <!--func()-->
+          留言({{ article.replies | length }})
+        </span>
+        {% for r in article.replies %}
+        <div class='cell reply_area reply_item'>
+
+            <a href="/user/{{ r.id }}" class="user_avatar">
+                <img src="/user/avatar/{{ r.avatar }}"
+                     title="{{ r.username }}"/>
+            </a>
+            <div class='user_info'>
+                <a class='dark reply_author'>
+                    {{ r.username }}
+                </a>
+                <a class="reply_time">
+                    {{ loop.index }}楼 • {{ r.ct | formattedTime }}
+                </a>
+            </div>
+            <div class='user_action'>
+                    <span>
+                        <i class="fa up_btn
+                          fa-thumbs-o-up
+                          invisible" title="喜欢"></i>
+                        顶
+                        <span class="up-count">
+                        </span>
+                    </span>
+            </div>
+        </div>
+        <div class='reply_content from-{{ r.username }}'>
+            <div class="markdown-text">
+                <!--nunjucks 默认开启了 xss 防护-->
+                <!--使用 | safe 会关掉这个防护-->
+                {{ r.content  | safe }}
+            </div>
+        </div>
+    {% endfor %}
+    <div>
+        <form action="/reply/add?test=1" method="post">
+            <input type="hidden" name="topic_id" value="{{ article.id }}">
+            <textarea class="editor" name="content"></textarea>
+            <button>发表看法</button>
+        </form>
+    </div>
+</div>
+</replies>
+<div class="footer">© YOUNGCHOU 2017 </div>
+<script type="text/javascript">
+	(function() {
+		var $backToTopTxt = "", $backToTopEle = $('<img src="/static/img/ttop.png" class="ttop">').appendTo($("body"))
+		.text($backToTopTxt).attr("title", $backToTopTxt).click(function() {
+			$("html, body").animate({ scrollTop: 0 }, 800);
+		}), $backToTopFun = function() {
+			var st = $(document).scrollTop(), winh = $(window).height();
+			(st > 0)? $backToTopEle.show(): $backToTopEle.hide();
+			//IE6下的定位
+			if (!window.XMLHttpRequest) {
+				$backToTopEle.css("top", st + winh - 166);
+			}
+		};
+		$(window).bind("scroll", $backToTopFun);
+		$(function() { $backToTopFun(); });
+	})();
+</script>
+</body>
+</html>

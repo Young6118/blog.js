@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>注册 | Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/css/register.css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div><a href="/article"> < 返回</a></div>
+<div class="container">
+    <div class="flat-form">
+        <ul class="tabs">
+            <li>
+                <a href="/register">右端 | 注册</a>
+            </li>
+        </ul>
+        <div id="register" class="form-action">
+            <h1>Register</h1>
+            <p>
+                注册尚可评论、发博文
+            </p>
+            <form action="/register" method="post">
+                <ul>
+                    <li>
+                        <input type="text" name="username" placeholder="用户名长度大于4" required />
+                    </li>
+                    <li>
+                        <input type="password" name="password" placeholder="密码长度大于4" required />
+                    </li>
+                    <li>
+                        <input type="submit" value="Sign Up" class="button" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer label">© YOUNGCHOU 2017 </div>
+</body>
+</html>
+
+

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新青柚 | 首页 </title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <div class="nav">
+        <br>
+        <h4>&nbspYoungChou1997 </h4>
+        <br>
+        <div class="label">
+            <a href="/article">全部文章</a>
+        </div>
+        <div class="label catalogue">
+            <a href="/catalogue">分类管理</a>
+        </div>
+        <div class="label login-btn"><a href="/login">登录</a></div>
+        <div class="label logout-btn"><a href="/logout">注销</a></div>
+        <div class="label reg-btn"><a href="/register">注册</a></div>
+        <br>
+        <br>
+        <p>一点点的意志，汇成绝世芳华</p>
+        <br>
+        <p>当前用户: <span class="cur-user">{{ user.username }}</span></p>
+        <br>
+        <br>
+        <div class="footer label">© YOUNGCHOU 2017 </div>
+    </div>
+    <div class="imgs" data-index=1>
+        <img class="max img-0 active" src="http://ots42ye1g.bkt.clouddn.com/bg9.jpg">
+        <img class="max img-1" src="http://ots42ye1g.bkt.clouddn.com/bg8.jpeg">
+        <img class="max img-2" src="http://ots42ye1g.bkt.clouddn.com/bg3.jpg">
+    </div>
+    <div class="div-dot">
+        <ul class="ul">
+            <li class="dot highlight dot-0" data-list="0"></li>
+            <li class="dot dot-1" data-list="1"></li>
+            <li class="dot dot-2" data-list="2"></li>
+        </ul>
+    </div>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

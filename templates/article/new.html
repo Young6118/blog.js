@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>新青柚 | 写新博客</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/lib/editor/editor.css">
+    <link rel="stylesheet" href="/static/lib/webuploader/webuploader.css">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="/static/lib/jquery-3.0.0.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/modal.min.js"></script>
+    <script src="/static/lib/markdownit.js"></script>
+    <script src="/static/lib/webuploader/webuploader.withoutimage.js"></script>
+    <script src="/static/lib/editor/editor.js"></script>
+    <script src="/static/lib/editor/ext.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+</head>
+<body>
+<header>
+    <div><a href="/article"> < 返回</a></div>
+</header>
+<div id="main">
+    <div id="content">
+        <div class="panel">
+            <div class="inner post">
+                <form id="create_topic_form" method="post" action="/article/add">
+                    <fieldset>
+                        <textarea autofocus class='span6' id='title' name='title' rows='1' placeholder="标题字数 10 字以上" required></textarea>
+                        <span class="tab-selector">选择版块：</span>
+                        <select name="board_id" id="board" required>
+                            <option value="">请选择</option>
+                            {% for b in catalogue %}
+                            <option value="{{ b.id }}">{{ b.title }}</option>
+                            {% endfor %}
+                        </select>
+                        标签：
+                        <input name=tags" class='span2' required>
+                        关键词：
+                        <input name="keywords" class='span2' required>
+                        <div class='markdown_editor in_editor'>
+                            <div class='markdown_in_editor'>
+                                <textarea class='editor' name='content' rows='20' placeholder='文章支持 Markdown 语法, 请注意标记代码'></textarea>
+                                <div class='editor_buttons'>
+                                    <input type="submit" class='span-primary submit_btn' data-loading-text="提交中" value="提交">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <button onclick="recovery()" class="btn editor_buttons" class="span-primary">
+                    回滚
+                </button>
+                <p class='auto-save-prompt'>三分钟后自动保存笔记到本地缓存</p>
+                <p class='recovery-prompt'>点击按钮回滚至历史文章本地缓存，本编辑器支持快捷键操作</p>
+            </div>
+        </div>
+    </div>
+    <div>© YOUNGCHOU 2017 </div>
+</div>
+</body>
+<script type="text/javascript">
+( function() {
+         var editor = new Editor();
+         editor.render($('.editor')[0]);
+    })();
+
+</script>
+<script src="/static/js/new.js"></script>
+</html>

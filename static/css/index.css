@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    display: inline-block;
+    float: left;
+    width: 15%;
+}
+.max {
+    animation: showOn 1s linear 1s;
+    display: none;
+}
+.active {
+    display: block;
+    width: 85%;
+    position: relative;
+    height: 40rem;
+    animation: fadeIn 3s linear 1s;
+}
+.div-dot {
+    line-height: 0.3rem;
+    float: left;
+    position: absolute;
+    top: 20rem;
+    right: -10rem;
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+}
+.ul {
+    list-style: none;
+    line-height: 0.3rem;
+    display: inline-block;
+}
+.dot{
+    width: 7rem;
+    height: 0.4rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    opacity: .3;
+    float: left;
+    margin: 0px 1.25rem 0 0;
+    cursor: pointer;
+}
+
+.div-dot {
+    z-index: 2;
+}
+.div-dot .highlight {
+    background-color: #ffffff;
+    opacity: 1 !important;
+    text-align: left;
+}
+a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+}
+.label {
+    border-left: 1px solid black;
+    display: block;
+    padding: 5px;
+    margin: 5px;
+}
+.footer {
+    width: 100%;
+    font-size: 12px;
+}
+p {
+    font-size: 12px;
+    font-weight: 200;
+}
+.hide {
+    display: none;
+}
+@keyframes fadeIn
+{
+    0%   {opacity: 1;}
+    100% {opacity: .7;}
+}
+@media all and (min-width: 300px) and (max-width: 1081px) {
+    html {
+        margin: 0;
+        padding: 0;
+    }
+    h4 {
+        font-size: 60px;
+        font-weight: 500;
+    }
+    .nav {
+        display: block;
+        width: 100%
+    }
+    .label {
+        display: inline-block;
+        border-left: none;
+        padding: 12px;
+        margin: 3px;
+    }
+    .label a {
+        font-size: 50px;
+        background-color: #7aba7b;
+        color: white;
+        padding: 12px;
+        letter-spacing: 2px;
+    }
+    p {
+        font-size: 40px;
+    }
+    .footer {
+        font-size: 30px;
+        display: inline-block;
+        text-align: center;
+        position: fixed;
+        bottom: 20px;
+    }
+    .active {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        animation: fadeIn 1s ease-in-out 3s;
+    }
+    img {
+        width: 100%;
+    }
+    .imgs {
+        width: 100%;
+    }
+    .div-dot {
+        display: none;
+    }
+    .hide {
+        display: none;
+    }
+}

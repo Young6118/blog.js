@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>catalogue page</title>
+</head>
+<body>
+<div><a href="/"> < 返回</a></div>
+    <p>catalogue list</p>
+    <a href="/catalogue/new">新增 catalogue</a>
+    {{ flash.message }}
+    <ul>
+        {% for b in catalogue %}
+            <li>
+                <span>{{ b.title }}</span>
+                <a href="/catalogue/delete/{{ b.id }}?token={{ token }}">删除</a>
+                <a href="/catalogue/edit/{{ b.id }}">编辑</a>
+            </li>
+        {% else %}
+            <li>暂时还没有 catalogue</li>
+        {% endfor %}
+    </ul>
+    <div class="footer label">© YOUNGCHOU 2017 </div>
+</body>
+</html>

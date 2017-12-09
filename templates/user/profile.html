@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user page</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .avatar {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div><a href="/article"> < 返回</a></div>
+    <h3>用户资料</h3>
+    <p>用户ID</p>
+    <p>{{ user.id }}</p>
+    <p>用户名</p>
+    <p>{{ user.username }}</p>
+    <p>密码</p>
+    <input type="password" value="{{ user.password }}"></input>
+    <p>用户当前头像</p>
+    <p>
+        <img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">
+    </p>
+    <div>
+        <h3>上传新头像</h3>
+        <form action="/user/upload/avatar" method="post" enctype="multipart/form-data">
+            <p>
+                <input id="upload-file" type="file" name="avatar" required>
+            </p>
+            <button id="submit-button">上传</button>
+        </form>
+    </div>
+    <script src="/static/js/upload.js"></script>
+</body>
+</html>

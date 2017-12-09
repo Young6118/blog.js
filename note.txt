@@ -1,0 +1,1 @@
+db.createUser({user : "root",pwd: "u",roles:[{db : "blog", role : "readWrite"}, {role: "dbAdmin", db: "blog"}], customData: {"id": "2017102401"}}) 

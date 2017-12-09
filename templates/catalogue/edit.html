@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>catalogue edit page</title>
+</head>
+<body>
+<div><a href="/"> < 返回</a></div>
+    <form action="/catalogue/update" method="post">
+        <p>
+            <input type="hidden" name="id" value="{{ board.id }}">
+        </p>
+        <p>
+            <input type="text" name="title" value="{{ board.title }}">
+        </p>
+        <button>更新 catalogue</button>
+    </form>
+    <div class="footer label">© YOUNGCHOU 2017 </div>
+</body>
+</html>

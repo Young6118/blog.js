@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!--flash | length 获取 flash 中 key 的数量-->
+{% if (flash | length) > 0 %}
+<p>{{ flash.message }}</p>
+{% endif %}
+<div><a href="/article"> < 返回</a></div>
+<div id="login">
+    <h2><span class="fontawesome-lock"></span>新青柚 | 登陆</h2>
+
+    <form action="/login" method="POST">
+
+        <fieldset>
+            <input type="hidden" name="next_url" value="{{ next_url }}">
+            <p>
+            <p><label for="email">用户名</label></p>
+            <p><input type="text" id="email"  name="username" placeholder="用户名长度大于4" required></p>
+            <p><label for="password">密码</label></p>
+            <p><input type="password" id="password" required value="password" name="password" placeholder="密码长度大于4" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
+            <p><input type="submit" value="Sign In"></p>
+
+        </fieldset>
+
+    </form>
+
+</div>
+<div class="footer label">© YOUNGCHOU 2017 </div>
+</body>
+</html>

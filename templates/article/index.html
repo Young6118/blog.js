@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>新青柚 | BLOG</title>
+    <link rel="stylesheet" href="/static/css/article_index.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/lib/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+
+<div class="header">
+    <header class="header-back">
+        <img src='' class="header-logo" alt="logo" />
+    </header>
+    <div class="nav-bar">
+        <ul class="header-nav">
+            <li class="nav-active">
+                <a href="/">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://production.youngchou.cn">
+                    <span>项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://blog.youngchou.cn">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.youngchou.cn/resume">
+                    <span>简历</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://bbs.youngchou.cn">
+                    <span>社区</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://gitlab.youngchou.cn">
+                    <span>gitlab</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <span class="header-search">
+            <input type="text"placeholder="搜索你感兴趣的内容 开发中" />
+            <button>搜</button>
+          </span>
+    <div class="userinfo">
+        <a href="/article/new" class="create_topic_btn">
+            <span class="span-success">创作</span>
+        </a>
+    </div>
+</div>
+
+<div id="main">
+    <div id="sidebar">
+        <div class="panel">
+            <div class="inner">
+                <p class="header-intro">
+                    对生活永远怀揣热忱
+                    <br />
+                    love & enjoy life
+                </p>
+                <button id="id-menu">目录<span></span></button>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="panel">
+            <div class="catalogue">
+                <!--这个 catalogue 并不在数据库中, 直接判断当前的 board_id 是否为 -1-->
+                <!--如果是 -1, 就添加 current-tab 这个 class, 否则不添加-->
+                <a href="/article" class="header-tab topic-tab current-tab">
+                    全部
+                </a>
+                {% for b in catalogue %}
+                    {% if b.id == board_id %}
+                        {% set cls = 'current-tab' %}
+                    {% else %}
+                        {% set cls = '' %}
+                    {% endif %}
+                    <a href="/article?board_id={{ b.id }}" class="label topic-tab {{ cls }}">
+                        {{ b.title }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    {% for t in article %}
+                    <div class="cell">
+                        <div class="topic_title_wrapper">
+                            <a class="topic_title" href="/article/detail/{{ t.id }}">
+                                {{ t.title }}
+                            </a>
+                            <!--article 的回复数和浏览数-->
+                            <!--| 的语法是 filter linux 的管道-->
+                            <!--var l = t.replies()-->
+                            <!--length(l)-->
+                            <!--length(t.replies())-->
+
+                            <span class="topic_view"><span> {{ t.ct | formattedTime }} </span>  &nbsp评论 {{ t.replies | length }} / 阅读 {{ t.views }} </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">© YOUNGCHOU 2017 </div>
+</div>
+<script>
+$(function(){
+            $('#id-menu').click(() => {
+              	var flag = $(".label")[0].style.display
+                if(flag == 'none') {
+	                $(".label").css('display', 'block')
+                } else {
+	                $(".label").hide()
+                }
+            })
+})
+</script>
+</body>
+</html>
