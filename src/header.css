@@ -1,0 +1,148 @@
+.header {
+  text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-flow: row wrap; */
+  justify-content: space-around;
+  width: 100%;
+  height: 4rem;
+  align-items: center;
+  border-bottom: 1px solid #dde;
+  box-shadow: 0px 2px #eee;
+}
+
+.header-logo {
+  animation: header-logo-spin infinite 2s linear;
+  height: 3.3rem;
+  vertical-align: text-top;
+}
+
+.header-back {
+  padding: 10px;
+}
+
+.header-intro {
+  font-size: 0.7rem;
+  padding: 5px;
+  line-height: 0.9rem;
+  color: #22885b;
+}
+
+.header-nav {
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header-nav li {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  transition-duration: 0.4s;
+}
+
+.header-nav li:hover {
+  background-color: #eee;
+  opacity: 0.5;
+  transition: all 0.8s;
+}
+.header-nav li:hover:after {
+  opacity: 1;
+  transition: 0.2s;
+  color: #0f88eb;
+}
+
+.header-nav li a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.header-nav li a span {
+  color: #8590a6;
+  line-height: 30px;
+  font-size: 0.7em;
+  padding:  0 8px;
+  font-weight: 300;
+}
+
+.header-search {
+  border: 1px solid #eee;
+  padding-left: 10px;
+  border-radius: 15px;
+  background-color: #eee;
+}
+
+.header-search input {
+  border: none;
+  background: #eee;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.3rem;
+  outline: 0;
+}
+
+.header-search button {
+  padding: 7px;
+  width: 50px;
+  background-color: #0f88eb;
+  margin: 0;
+  border: 1px solid #0f88eb;
+  color: white;
+  border-radius: 0 15px 15px 0;
+  outline: none;
+}
+
+.header-search button:hover {
+  cursor: pointer;
+  background-color: #0f85bb;
+}
+
+.userinfo {}
+
+.btn {
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 5px 12px;
+  margin: 5px;
+  border: 1px solid #0f88eb;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 30px;
+  width: 5rem;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 300;
+  transition-duration: 0.4s;
+}
+
+.btn:hover{
+  background-color: #4caf50;
+  color: #eee;
+}
+
+.btn:click {
+  border: none;
+}
+
+@keyframes header-logo-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 720px) {
+  .header {
+    height: 2.8rem;
+  }
+  .header-intro {
+    font-size: 0.5rem;
+    font-weight: 300;
+    line-height: 1rem;
+  }
+  .header-logo {
+    height: 1.9rem;
+    animation: unset;
+  }
+}

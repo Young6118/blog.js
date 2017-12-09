@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  /*outline: gray dashed 1px;8*/
+  border: 0px;
+  font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei",tahoma,arial;
+}
+
+html, body {
+  height: 100%;
+}
